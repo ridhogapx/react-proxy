@@ -8,6 +8,13 @@ function App() {
   const [count, setCount] = useState(0)
   axios.defaults.baseURL = `http://ec2-3-113-2-184.ap-northeast-1.compute.amazonaws.com/api/v1/auth`
 
+  const handler = () => {
+    axios.post("signup", {
+      email: "test@test.com",
+      password: "12345678"
+    })
+  }
+
   useEffect(() => {
     axios.get("/").then(res => console.log(res))
   }, [])
@@ -26,6 +33,9 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
+        </button>
+        <button onClick={handler}>
+          Register
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
