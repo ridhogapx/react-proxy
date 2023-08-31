@@ -6,11 +6,17 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const handler = () => {
-    axios.post("signup", {
-      email: "test@test.com",
+  const handler = async() => {
+    const res = await axios.post("http://localhost:5173/api/v1/auth/signup", {
+      email: "tzt@test.com",
       password: "12345678"
+    }, {
+      headers: {
+        "content-type" : "application/json"
+      }
     })
+
+    console.log(res)
   }
 
   useEffect(() => {
