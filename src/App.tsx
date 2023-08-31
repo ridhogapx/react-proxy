@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  axios.defaults.baseURL = `http://ec2-3-113-2-184.ap-northeast-1.compute.amazonaws.com/api/v1/auth`
+
+  useEffect(() => {
+    axios.get("/").then(res => console.log(res))
+  }, [])
 
   return (
     <>
