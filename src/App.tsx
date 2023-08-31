@@ -6,8 +6,6 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  axios.defaults.baseURL = `http://ec2-3-113-2-184.ap-northeast-1.compute.amazonaws.com/api/v1/auth`
-
   const handler = () => {
     axios.post("signup", {
       email: "test@test.com",
@@ -16,7 +14,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get("/").then(res => console.log(res))
+    axios.get("http://localhost:5173/api").then(res => console.log(res))
   }, [])
 
   return (

@@ -7,9 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api" : {
-        target: "http://ec2-3-113-2-184.ap-northeast-1.compute.amazonaws.com/api/v1/auth",
+        target: "http://ec2-3-113-2-184.ap-northeast-1.compute.amazonaws.com",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        secure: false,
       }
     }
   }
